@@ -1,0 +1,36 @@
+
+1.	What is it?
+This application is designed to parse a cron string and expands each field to show the times at which it will run.
+The cron string will be passed to the application as a single argument. For example:
+Input:
+＂*/15 0 1,15 * 1-5 /usr/bin/find＂
+Output:
+minute              		0 15 30 45
+hour               		0
+day of month 	    	1 15
+month		    	1 2 3 4 5 6 7 8 9 10 11 12
+day of week	    	1 2 3 4 5
+command		 /usr/bin/find
+
+2.	How to use?
+(1)	Install pip:
+sudo apt install python3-pip
+(2)	Using pip install pyinstaller:
+	sudo pip3 install pyinstaller 
+(3)	Generate executable file:
+In the root directory of the source code, execute command: 
+pyinstaller -F main.py 
+(4)	Execute the application:
+In the root directory of the executable file, execute command:
+ main "*/15 0 1,15 * 1-5 /usr/bin/find"
+
+3.	File Structure
+--prase_symbol.py 
+Parse strings containing different symbols. Use regular expression to verify string.
+--main.py
+The main process of parsing a cron string input.
+--test.py
+Unit tests for each symbol resolution function
+
+
+Please contact aidazhengxun@163.com if there's any issue.
